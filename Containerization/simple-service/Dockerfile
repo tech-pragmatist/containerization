@@ -1,4 +1,4 @@
-FROM        java:8u72-jre
+FROM        openjdk:8-jdk-alpine:wq::wq
 
 LABEL       authors="deepvin"
 

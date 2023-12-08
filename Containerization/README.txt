@@ -12,3 +12,6 @@ docker pull techpragmatist/simple-service:0.1
 
 # run
 docker run -p 9001:9001 techpragmatist/simple-service:0.1
+
+# test
+http://localhost:9001/hello
