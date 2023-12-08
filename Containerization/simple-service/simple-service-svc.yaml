@@ -1,0 +1,20 @@
+#
+# Service creation for K8S
+# Service gives a reliable DNS name for ever changing IPs of Pods (as they are borned and died)
+# Cmd :: 
+# kubectl apply -f simple-service-svc.yaml
+# kubectl get pods
+# 
+apiVersion: v1
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-service-svc
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 9001
+      nodePort: 31111
+  selector:
+    app: simple-service

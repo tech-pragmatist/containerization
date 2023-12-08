@@ -1,0 +1,20 @@
+#
+# Pod creation for K8S
+# Cmds :: 
+# kubectl apply -f simple-service-pod.yaml
+# kubectl get services
+# Even after this is applied, Pod would still not be reached from web browser (external world)
+# To get to the Pod, define service
+#
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-service-pod
+  labels:
+    app: simple-service
+spec:
+  containers:
+    - name: simple-service
+      image: techpragmatist/simple-service:0.2
+      ports:
+        - containerPort: 9001

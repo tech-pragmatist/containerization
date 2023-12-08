@@ -1,0 +1,30 @@
+#
+# Deployment creation for K8S - << THIS IS WHERE ALL K8S MAGIC IS >>
+# Deployment tell K8S what is DESIRED state and rest is taken care by K8S
+# Cmds :: 
+# kubectl apply -f simple-service-deploy.yaml
+# kubectl get deployments
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-service-deploy
+  labels:
+    app: simple-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-service
+  template:
+    metadata:
+      labels:
+        app: simple-service
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+        - name: simple-service-pod
+          image: techpragmatist/simple-service:0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9001
